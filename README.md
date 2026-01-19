@@ -88,7 +88,7 @@ pip install -r requirements.txt
 ## Option 1: Run complete end-to-end notebook
 
 ### Note:
-By choosing this option the entire process of Dataset + Trainig + Evaluation + Real-Time will be execute. This might take time for each run.
+By choosing this option the entire process of Dataset + Training + Validation + Real-Time will be executed. This might take time for each run.
 
 ---
 
