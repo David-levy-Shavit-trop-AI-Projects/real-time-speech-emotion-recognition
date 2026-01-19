@@ -61,32 +61,64 @@ All audio, feature, and model hyperparameters are centralized in `config.py` to 
 ```
 project/
 │
-├── cnn_gru_ravdess.pth   # Trained model (ignored by git)
-├── config.py             # Shared configuration
-├── realtime_gui.py       # Live microphone GUI
-├── requirements.txt      # dependancies list
-├── training_model.ipynb  # Training, evaluation, plots
+├── cnn_gru_ravdess.pth         # Trained model (ignored by git)
+├── complete_realtime_ser.ipynb # Training + Evaluation + Real-Time
+├── config.py                   # Shared configuration
+├── realtime_gui.py             # Live microphone GUI
+├── requirements.txt            # dependancies list
+├── training_model.ipynb        # Training, evaluation, plots
 └── README.md
 ```
 
 ---
 
-## 🚀 How to Run the Project
+## 🚀 How to Run the Project (2 options)
 
 ### prerequisites
 
 - Python 3
-
----
-
-### 1️⃣ Install Dependencies
+- Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
+
 ---
 
-### 2️⃣ Train the Model (First time users)
+## Option 1: Run complete end-to-end notebook
+
+### Note:
+By choosing this option the entire process of Dataset + Trainig + Evaluation + Real-Time will be execute. This might take time for each run.
+
+---
+
+### E2E Proccess
+
+Open and "Run All":
+
+```
+complete_reltime_ser.ipynb
+```
+
+This notebook will:
+- Downloads the RAVDESS dataset
+- Extracts log-mel features
+- Trains the CNN-GRU model
+- Plots:
+  - Training & validation loss/accuracy
+  - Confusion matrix
+  - Classification report
+- Captures live audio from the microphone
+- Performs streaming inference
+- Displays real-time emotion probabilities
+
+---
+
+## Option 2: Run GUI Independently
+By using this approch you will only need to train the model once at the first time of usage and then use the GUI based on the trained model as many times as you like.
+> The only reason for re-training the model is for improvments or after changes in the code.
+
+### Step 1: Train the Model (First time users)
 
 Open and "Run All":
 
@@ -110,7 +142,7 @@ cnn_gru_ravdess.pth
 
 ---
 
-### 3️⃣ Run the Real-Time GUI
+### 3️Step 2: Run the Real-Time GUI
 
 Only after the training is complete (at least once), run the following command on terminal:
 
